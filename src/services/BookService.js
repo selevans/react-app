@@ -12,6 +12,9 @@ class BookService {
   findBookByIsbn(isbn){ 
     return axios.get(`/books?isbn=${isbn}`);
   }
+  persist(book){
+    return axios.post('/books', book);
+  }
 }
 
 

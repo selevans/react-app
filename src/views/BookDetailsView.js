@@ -18,7 +18,7 @@ const BookDetailsView = () => {
       });
     };
     findBook();
-  });
+  },[]);
 
   return (
     <div className="col">
