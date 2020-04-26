@@ -7,21 +7,19 @@ import { useHistory } from "react-router-dom";
 const BookDetailsView = () => {
   let history = useHistory();
   let {id} = useParams();
-  const [books, setBooks] = useState([]);
+  const [book, setBook] = useState({});
 
   useEffect(() => {
     const findBook = () => {
       bookService.findBookById(id)
       .then(function(response){
-        setBooks(response.data);
+        setBook(...response.data);
       });
     };
     findBook();
   },[id]);
 
   return (
-    <div className="col">
-    {books.map(book => 
     <Container style={{marginTop: '20px'}} key= {book.id}> 
       <Button variant="dark" style={{float:'right', marginBottom:'20px'}} onClick={() => history.push('/Books/edit/' + book.id )}>Edit</Button>{' '}
       <Card border="dark" style={{ width: '70rem'}}>
@@ -36,8 +34,7 @@ const BookDetailsView = () => {
             </Card.Footer>
         </Card.Body>
       </Card>
-    </Container>)}
-  </div>
+    </Container> 
   );
 }
 
