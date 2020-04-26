@@ -1,9 +1,11 @@
 import React,{useState} from 'react';
-import {Form, Button, Container} from 'react-bootstrap';
+import {Container,Form, Button} from 'react-bootstrap';
 import { bookService } from '../services/BookService';
 import { useHistory } from "react-router-dom";
 
+
 const AddBookView = () => {
+
     let history = useHistory();
     const [book,setBook] = useState({});
 
@@ -26,7 +28,7 @@ const AddBookView = () => {
     }
     return (
         <Container style= {{marginTop: '30px'}}>
-            <Form onSubmit={AddBook}>
+            <Form onSubmit = {AddBook}>
                 <Form.Group >
                     <Form.Label>Book Title</Form.Label>
                     <Form.Control name="title" type="text" placeholder=" Title" value={book.title} onChange={changeValue}/>
@@ -54,7 +56,7 @@ const AddBookView = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
-            </Form>     
+            </Form> 
         </Container>
     );
 }

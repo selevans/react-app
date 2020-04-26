@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Col, Container, Row, Button} from 'react-bootstrap';
-import Book from './Book';
-import BookSearch from './BookSearch';
+import Book from '../components/Book';
+import BookSearch from '../components/BookSearch';
 import { useHistory } from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ const BookView = ({books, onSearch}) => {
       </Row>
       <Row>
           {
-            books.map((book) => <Col  key={book.isbn}><Book book={book}/></Col>)
+            books.map((book) => <Col  key={book.id}><Book book={book}/></Col>)
           }
       </Row>
     </Container>

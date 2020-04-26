@@ -9,11 +9,15 @@ class BookService {
     return axios.get(`/books?title=${title}`);
   }
 
-  findBookByIsbn(isbn){ 
-    return axios.get(`/books?isbn=${isbn}`);
+  findBookById(id){ 
+    return axios.get(`/books?id=${id}`);
   }
   persist(book){
     return axios.post('/books', book);
+  }
+
+  update(book){
+    return axios.put(`/books/${book.id}`, book);
   }
 }
 

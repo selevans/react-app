@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
-import BookView from './components/BookView';
+import BookView from './views/BookView';
 import { bookService } from './services/BookService';
 import { Container, Row, Col } from 'react-bootstrap';
 import {
@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import BookDetailsView from './views/BookDetailsView';
 import AddBookView from './views/AddBookView';
+import EditBookView from './views/EditBookView';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -60,8 +61,11 @@ function App() {
               </Route>        
               <Route path="/books/add" exact>
                 <AddBookView />
-              </Route>      
-              <Route path="/books/:isbn" exact>
+              </Route>
+              <Route path="/books/edit/:id" exact>
+                <EditBookView />
+              </Route>        
+              <Route path="/books/:id" exact>
                 <BookDetailsView />
               </Route>
              </Switch>
